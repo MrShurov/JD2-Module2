@@ -17,15 +17,15 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="lesson1" target="1.5" />
-      <module name="lesson2" target="1.5" />
-      <module name="lesson3" target="1.5" />
-      <module name="lesson4" target="1.5" />
-      <module name="lesson5" target="1.5" />
-      <module name="lesson6" target="1.5" />
-      <module name="lesson7" target="1.5" />
-      <module name="lesson8" target="1.5" />
-      <module name="module2" target="1.5" />
+      <module name="lesson1" target="1.8" />
+      <module name="lesson2" target="1.8" />
+      <module name="lesson3" target="1.8" />
+      <module name="lesson4" target="1.8" />
+      <module name="lesson5" target="1.8" />
+      <module name="lesson6" target="1.8" />
+      <module name="lesson7" target="1.8" />
+      <module name="lesson8" target="1.8" />
+      <module name="module2" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
