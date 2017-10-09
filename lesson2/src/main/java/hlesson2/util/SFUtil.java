@@ -25,10 +25,10 @@ public class SFUtil {
         // Hibernate settings equivalent to hibernate.cfg.xml's properties
         Map<String, String> settings = new HashMap<>();
         settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
-        settings.put(Environment.URL, "jdbc:mysql://localhost:3306/hl2");
+        settings.put(Environment.URL, "jdbc:mysql://localhost:3306/lesson2");
         settings.put(Environment.USER, "root");
         settings.put(Environment.PASS, "2372002Java");
-        settings.put(Environment.HBM2DDL_AUTO, "none");
+        settings.put(Environment.HBM2DDL_AUTO, "create");
         settings.put(Environment.SHOW_SQL, "true");
         settings.put(Environment.STORAGE_ENGINE, "innodb");
         // Apply settings
