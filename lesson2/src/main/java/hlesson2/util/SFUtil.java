@@ -28,7 +28,7 @@ public class SFUtil {
         settings.put(Environment.URL, "jdbc:mysql://localhost:3306/lesson2");
         settings.put(Environment.USER, "root");
         settings.put(Environment.PASS, "2372002Java");
-        settings.put(Environment.HBM2DDL_AUTO, "create");
+        settings.put(Environment.HBM2DDL_AUTO, "none");
         settings.put(Environment.SHOW_SQL, "true");
         settings.put(Environment.STORAGE_ENGINE, "innodb");
         // Apply settings
