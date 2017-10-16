@@ -1,26 +1,18 @@
 package lesson3.util;
 
-import org.hibernate.cfg.DefaultNamingStrategy;
+import org.hibernate.boot.model.naming.Identifier;
+import org.hibernate.boot.model.naming.PhysicalNamingStrategy;
+import org.hibernate.engine.jdbc.env.spi.JdbcEnvironment;
 
-public class NamingStrategy extends DefaultNamingStrategy{
+public class NamingStrategy extends PhysicalNamingStrategy {
 
-    @Override
-    public String classToTableName(String className){
-        return "T_" + super.classToTableName(className).toUpperCase();
-    }
+    Identifier toPhysicalCatalogName(Identifier var1, JdbcEnvironment var2);
 
-    @Override
-    public String propertyToColumnName(String propName){
-        return "F_" + super.propertyToColumnName(propName);
-    }
+    Identifier toPhysicalSchemaName(Identifier var1, JdbcEnvironment var2);
 
-    @Override
-    public String columnName(String columnName) {
-        return columnName(columnName);
-    }
+    Identifier toPhysicalTableName(Identifier var1, JdbcEnvironment var2);
 
-    @Override
-    public String tableName(String tableName) {
-        return tableName;
-    }
+    Identifier toPhysicalSequenceName(Identifier var1, JdbcEnvironment var2);
+
+    Identifier toPhysicalColumnName(Identifier var1, JdbcEnvironment var2);
 }

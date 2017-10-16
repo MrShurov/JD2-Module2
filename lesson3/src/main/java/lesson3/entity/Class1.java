@@ -16,8 +16,19 @@ public class Class1 {
     public class User implements Serializable {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        private Integer id;
+        private String id;
         @Column
         private String username;
+    }
+
+    private String id;
+
+    @Id
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

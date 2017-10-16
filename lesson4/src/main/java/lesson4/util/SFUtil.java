@@ -1,15 +1,11 @@
-package lesson3.util;
+package lesson4.util;
 
-import lesson3.entity.Class1;
-import lesson3.entity.Class2;
-import lesson3.entity.Class3;
-import lesson3.entity.User;
+import lesson4.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
@@ -24,7 +20,7 @@ public class SFUtil {
         StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
         Map<String, String> settings = new HashMap<>();
         settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
-        settings.put(Environment.URL, "jdbc:mysql://localhost:3306/lesson3?createDatabaseIfNotExist=true");
+        settings.put(Environment.URL, "jdbc:mysql://localhost:3306/lesson4");
         settings.put(Environment.USER, "root");
         settings.put(Environment.PASS, "2372002Java");
         settings.put(Environment.HBM2DDL_AUTO, "create");
@@ -34,9 +30,6 @@ public class SFUtil {
         ServiceRegistry serviceRegistry = serviceRegistryBuilder.build();
         MetadataSources sources = new MetadataSources(serviceRegistry);
         sources.addAnnotatedClass(User.class);
-        sources.addAnnotatedClass(Class1.class);
-        sources.addAnnotatedClass(Class2.class);
-        sources.addAnnotatedClass(Class3.class);
         Metadata metadata = sources.getMetadataBuilder().build();
         sessionFactory = metadata.getSessionFactoryBuilder().build();
     }

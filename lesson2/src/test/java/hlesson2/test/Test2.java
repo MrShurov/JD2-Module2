@@ -9,11 +9,11 @@ import static hlesson2.services.UserService.loadUser;
 public class Test2 {
     @Test
     public void getUserTest(){
-        getUser(999999999);
+        getUser(9999999);
     }
 
     @Test
     public void loadUserTest(){
-        loadUser(999999999);
+        loadUser(99999999);
     }
 }

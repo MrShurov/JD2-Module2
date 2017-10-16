@@ -12,5 +12,6 @@ public class Generations {
         session.getTransaction().begin();
         User user = session.load(User.class,1);
         System.out.println(session.getIdentifier(user));
+        session.getTransaction().commit();
     }
 }
