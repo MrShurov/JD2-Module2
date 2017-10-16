@@ -30,4 +30,13 @@ public class PersonTest {
         entityManager.remove(student);
         entityManager.getTransaction().commit();
     }
+
+    @Test
+    public void UpdatePerson(){
+        EntityManager entityManager = EMUtil.getEntityManager();
+        entityManager.getTransaction().begin();
+        Worker worker = entityManager.find(Worker.class,2);
+        worker.setCompany("it");
+        entityManager.getTransaction().commit();
+    }
 }
