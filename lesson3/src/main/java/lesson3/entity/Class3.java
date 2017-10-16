@@ -13,22 +13,9 @@ import java.io.Serializable;
 @EqualsAndHashCode
 @Entity
 public class Class3 {
-    public class User implements Serializable {
         @Id
         @GeneratedValue(strategy = GenerationType.TABLE)
         private Integer id;
         @Column
         private String username;
-    }
-
-    private String id;
-
-    @Id
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 }

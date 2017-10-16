@@ -44,7 +44,8 @@ public class UserTest {
 
     @Test
     public void GetIdTest() {
-        Session session = SFUtil.getSession();
+        EntityManager entityManager = EMUtil.getEntityManager();
+        Session session = entityManager.unwrap(Session.class);
         session.getTransaction().begin();
         Class1 class1 = new Class1();
         Class2 class2 = new Class2();
@@ -52,15 +53,15 @@ public class UserTest {
         session.persist(class1);
         session.persist(class2);
         session.persist(class3);
-        session.getTransaction().commit();
+/*        session.getTransaction().commit();
         session.clear();
         session.getTransaction().begin();
         session.merge(Class1.class);
         session.merge(Class2.class);
-        session.merge(Class3.class);
-        System.out.println("GenerationType.AUTO" + session.getIdentifier(class1));
-        System.out.println("GenerationType.IDENTITY" + session.getIdentifier(class2));
-        System.out.println("GenerationType.TABLE" + session.getIdentifier(class3));
+        session.merge(Class3.class);*/
+        System.out.println("GenerationType.AUTO " + session.getIdentifier(class1));
+        System.out.println("GenerationType.IDENTITY " + session.getIdentifier(class2));
+        System.out.println("GenerationType.TABLE " + session.getIdentifier(class3));
         session.getTransaction().commit();
     }
 }

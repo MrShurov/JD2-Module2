@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class EMUtil {
-    private static EntityManagerFactory emFactory=null;
+    private static EntityManagerFactory emFactory;
 
     public static EntityManager getEntityManager() {
         emFactory  = Persistence.createEntityManagerFactory("lesson3");

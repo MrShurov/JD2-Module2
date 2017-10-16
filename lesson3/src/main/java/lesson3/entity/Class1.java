@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,22 +14,8 @@ import java.io.Serializable;
 @EqualsAndHashCode
 @Entity
 public class Class1 {
-    public class User implements Serializable {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        private String id;
-        @Column
+        private Integer Id;
         private String username;
     }
-
-    private String id;
-
-    @Id
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-}
