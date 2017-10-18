@@ -1,18 +1,18 @@
 package lesson4;
 
-import lesson4.entity.TablePerSubclass.Student;
-import lesson4.entity.TablePerSubclass.Teacher;
+import lesson4.entity.TablePerClass.Student;
+import lesson4.entity.TablePerClass.Teacher;
 import lesson4.util.EMUtil;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
 
-public class TablePerSubclassTest {
+public class TablePerClassTest {
     @Test
     public void CreateTeacherTest(){
         EntityManager entityManager = EMUtil.getEntityManager();
         entityManager.getTransaction().begin();
-        Teacher teacher = new Teacher("Андрей","Тавкинь","Math");
+        Teacher teacher = new Teacher("Андрей","Тавкинь","Russian");
         Student student = new Student("Сергей","Потапов","10");
         entityManager.persist(teacher);
         entityManager.persist(student);
@@ -23,7 +23,7 @@ public class TablePerSubclassTest {
     public void DeleteUniversityTest(){
         EntityManager entityManager = EMUtil.getEntityManager();
         entityManager.getTransaction().begin();
-        Student student = new Student("Сергей","Потапов","10");
+        Student student = new Student("Сергей","Потапов","20");
         entityManager.persist(student);
         entityManager.getTransaction().commit();
         entityManager.clear();
@@ -37,7 +37,7 @@ public class TablePerSubclassTest {
     public void UpdateTeacherTest(){
         EntityManager entityManager = EMUtil.getEntityManager();
         entityManager.getTransaction().begin();
-        Teacher teacher = new Teacher("Андрей","Тавкинь","Demo");
+        Teacher teacher = new Teacher("Андрей","Тавкинь","Russian");
         entityManager.persist(teacher);
         entityManager.getTransaction().commit();
         entityManager.clear();

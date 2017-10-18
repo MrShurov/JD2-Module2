@@ -1,4 +1,4 @@
-package lesson4.entity.TablePerSubclass;
+package lesson4.entity.TablePerClass;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,10 +7,11 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@Table(name = "PERSON1")
-@Inheritance(strategy = InheritanceType.JOINED)
+@AllArgsConstructor
+@Table(name = "PERSON2")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person {
     @Id
     @GeneratedValue

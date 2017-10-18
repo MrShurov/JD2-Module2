@@ -1,5 +1,6 @@
-package lesson4.entity.TablePerSubclass;
+package lesson5.entity.OneToOne;
 
+import lesson5.entity.OneToMany.Department;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,16 +8,18 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "PERSON1")
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
     @Column
     private String name;
     @Column
     private String surname;
+    @OneToOne(cascade = CascadeType.ALL)
+    private PersonInfo personInfo;
 }

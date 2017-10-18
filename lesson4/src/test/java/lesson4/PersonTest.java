@@ -26,7 +26,11 @@ public class PersonTest {
     public void DeletePerson(){
         EntityManager entityManager = EMUtil.getEntityManager();
         entityManager.getTransaction().begin();
-        Student student = entityManager.find(Student.class,3);
+        Student student = new Student("ds");
+        entityManager.persist(student);
+        entityManager.getTransaction().commit();
+        entityManager.getTransaction().begin();
+        Student studentFromDB = entityManager.find(Student.class,1);
         entityManager.remove(student);
         entityManager.getTransaction().commit();
     }
@@ -35,7 +39,11 @@ public class PersonTest {
     public void UpdatePerson(){
         EntityManager entityManager = EMUtil.getEntityManager();
         entityManager.getTransaction().begin();
-        Worker worker = entityManager.find(Worker.class,2);
+        Worker worker = new Worker("ds");
+        entityManager.persist(worker);
+        entityManager.getTransaction().commit();
+        entityManager.getTransaction().begin();
+        Worker workerFromDB = entityManager.find(Worker.class,1);
         worker.setCompany("it");
         entityManager.getTransaction().commit();
     }

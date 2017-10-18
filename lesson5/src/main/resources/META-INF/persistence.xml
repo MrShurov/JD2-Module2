@@ -2,24 +2,16 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
-    <persistence-unit name="lesson4" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="lesson5" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>lesson4.entity.User</class>
-        <class>lesson4.entity.Person</class>
-        <class>lesson4.entity.Student</class>
-        <class>lesson4.entity.Worker</class>
-        <class>lesson4.entity.Teacher</class>
-        <class>lesson4.entity.University</class>
-        <class>lesson4.entity.TablePerSubclass.Person</class>
-        <class>lesson4.entity.TablePerSubclass.Student</class>
-        <class>lesson4.entity.TablePerSubclass.Teacher</class>
-        <class>lesson4.entity.TablePerClass.Person</class>
-        <class>lesson4.entity.TablePerClass.Student</class>
-        <class>lesson4.entity.TablePerClass.Teacher</class>
+        <class>lesson5.entity.OneToOne.Person</class>
+        <class>lesson5.entity.OneToOne.PersonInfo</class>
+        <class>lesson5.entity.OneToMany.Department</class>
+        <class>lesson5.entity.OneToMany.Person</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/lesson4?createDatabaseIfNotExist=true"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/lesson5?createDatabaseIfNotExist=true"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="2372002Java"/>
             <property name="hibernate.dialect.storage_engine" value="innodb"/>
