@@ -6,10 +6,13 @@ import lesson5.util.EMUtil;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class OneToMany {
     @Test
-    public void CeateTest(){
+    public void CreateTest(){
         EntityManager entityManager = EMUtil.getEntityManager();
         entityManager.getTransaction().begin();
         Department department = new Department("Sykpyn");
@@ -24,6 +27,38 @@ public class OneToMany {
         entityManager.persist(person1);
         entityManager.persist(person2);
         entityManager.persist(person3);
+        entityManager.getTransaction().commit();
+    }
+    @Test
+    public void DeleteTest(){
+        EntityManager entityManager = EMUtil.getEntityManager();
+        entityManager.getTransaction().begin();
+        Department department = new Department("Sykpyn");
+        Person person = new Person(null, "Herny","Dum",department);
+        entityManager.persist(department);
+        entityManager.persist(person);
+        entityManager.getTransaction().commit();
+        entityManager.getTransaction().begin();
+        entityManager.remove(person);
+        entityManager.getTransaction().commit();
+    }
+
+    @Test
+    public void UpdateTest(){
+        EntityManager entityManager = EMUtil.getEntityManager();
+        entityManager.getTransaction().begin();
+        Department department = new Department("Sykpyn");
+        Person person = new Person(null, "Herny","Dum",department);
+        ArrayList<Person> people = new ArrayList<>();
+        people.add(person);
+        department.setPeople(people);
+        entityManager.persist(department);
+        entityManager.persist(person);
+        entityManager.getTransaction().commit();
+        entityManager.getTransaction().begin();
+        Person personFromDB = entityManager.find(Person.class,2L);
+        System.out.println(personFromDB.getDepartment());
+        personFromDB.setName("Gena");
         entityManager.getTransaction().commit();
     }
 }
