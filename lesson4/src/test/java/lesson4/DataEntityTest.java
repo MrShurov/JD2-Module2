@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import javax.persistence.EntityManager;
 
-public class DataEntityTest {
+public class    DataEntityTest {
     @Test
     public void CreateTeacherTest(){
         EntityManager entityManager = EMUtil.getEntityManager();
