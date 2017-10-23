@@ -53,12 +53,6 @@ public class UserTest {
         session.persist(class1);
         session.persist(class2);
         session.persist(class3);
-/*        session.getTransaction().commit();
-        session.clear();
-        session.getTransaction().begin();
-        session.merge(Class1.class);
-        session.merge(Class2.class);
-        session.merge(Class3.class);*/
         System.out.println("GenerationType.AUTO " + session.getIdentifier(class1));
         System.out.println("GenerationType.IDENTITY " + session.getIdentifier(class2));
         System.out.println("GenerationType.TABLE " + session.getIdentifier(class3));
