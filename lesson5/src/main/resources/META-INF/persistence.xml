@@ -8,6 +8,9 @@
         <class>lesson5.entity.OneToOne.PersonInfo</class>
         <class>lesson5.entity.OneToMany.Department</class>
         <class>lesson5.entity.OneToMany.Person</class>
+        <class>lesson5.entity.ManyToMany.Person</class>
+        <class>lesson5.entity.ManyToMany.Department</class>
+        <class>lesson5.entity.ManyToMany.Meeting</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
@@ -15,9 +18,7 @@
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="2372002Java"/>
             <property name="hibernate.dialect.storage_engine" value="innodb"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
-            <property name="hibernate.use_sql_comments" value="true"/>
-            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
             <property name="hibernate.connection.pool_size" value="10"/>
         </properties>
     </persistence-unit>

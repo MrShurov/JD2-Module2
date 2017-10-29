@@ -1,28 +1,35 @@
-package lesson5.entity.OneToMany;
+package lesson5.entity.ManyToMany;
 
-import lesson5.entity.OneToOne.PersonInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "PERSON2")
+@Table(name = "PERSON3")
 public class Person {
     @Id
     @GeneratedValue
+    @Column(name = "PERSON_ID")
     private Long id;
-    @Column
+    @Column(name = "NAME")
     private String name;
-    @Column
+    @Column(name = "SURNAME")
     private String surname;
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "DEPARTMENT_ID")
     private Department department;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "PERSON_MEETING", joinColumns = {@JoinColumn(name = "PERSON_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "MEETING_ID")}
+    )
+    private List<Meeting> meetings = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

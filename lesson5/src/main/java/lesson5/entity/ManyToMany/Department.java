@@ -1,4 +1,4 @@
-package lesson5.entity.OneToMany;
+package lesson5.entity.ManyToMany;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,12 +10,13 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "DEPARTMENT3")
 public class Department {
     @Id
     @Column(name = "DEPARTMENT_ID")
     @GeneratedValue
     private Long id;
-    @Column
+    @Column(name = "DEPARTMENT_NAME")
     private String departmentName;
     @OneToMany(mappedBy = "department" , cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Person> people = new ArrayList<>();;
