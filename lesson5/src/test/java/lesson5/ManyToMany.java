@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ManyToMany {
 
-    @Test
+    @Before
     public void init(){
         EntityManager em = EMUtil.getEntityManager();
         em.getTransaction().begin();
@@ -55,7 +55,7 @@ public class ManyToMany {
 
     @Test
     public void updateTest(){
-        EntityManager entityManager = EMUtil.getEntityManager();
+        EntityManager entityManager = EMUtil.getEntityManager("lesson5.test");
         entityManager.getTransaction().begin();
         Meeting meeting3 = new Meeting();
         Meeting meeting1 = entityManager.find(Meeting.class,1L);
@@ -69,7 +69,7 @@ public class ManyToMany {
 
     @Test
     public void deleteTest(){
-        EntityManager entityManager = EMUtil.getEntityManager();
+        EntityManager entityManager = EMUtil.getEntityManager("lesson5.test");
         entityManager.getTransaction().begin();
         Meeting meeting = entityManager.find(Meeting.class,1L);
         entityManager.remove(meeting);

@@ -7,6 +7,7 @@ import lesson6.util.EMUtil;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
@@ -17,7 +18,7 @@ import static org.junit.Assert.assertThat;
 
 public class Lesson6Test {
 
-    @Before
+    @BeforeClass
     /*@Test*/
     public void init() {
         EntityManager entityManager = EMUtil.getEntityManager();
@@ -96,8 +97,7 @@ public class Lesson6Test {
         javax.persistence.Query query = entityManager.createQuery("select avg(p.amountCars), min(p.amountCars), max(p.amountCars), sum(p.amountCars) from PersonInfo p");
         List<Object[]> list = query.getResultList();
         for (Object[] res : list) {
-            System.out.println("Среднее кол-во машин: " + res[0] + ", минимальное кол-во машин:" + res[1]
-                    + ", максимальное кол-во машин:" + res[2] + ", сумма машин:" + res[3]);
+            System.out.println("Среднее кол-во машин: " + res[0] + ", минимальное кол-во машин:" + res[1] + ", максимальное кол-во машин:" + res[2] + ", сумма машин:" + res[3]);
         }
     }
 
@@ -106,7 +106,7 @@ public class Lesson6Test {
         EntityManager entityManager = EMUtil.getEntityManager("lesson6.test");
         entityManager.getTransaction().begin();
         Session session = entityManager.unwrap(Session.class);
-        Query query = session.createNativeQuery("insert into person (surname,id) select p.surname, p.id + 20 from person as p where p.name = 'Egor'");
+        javax.persistence.Query query = session.createQuery("insert into Person (surname,id) select p.surname, p.id + 20 from Person as p where p.name = 'Egor'");
         query.executeUpdate();
         entityManager.getTransaction().commit();
     }
@@ -124,22 +124,22 @@ public class Lesson6Test {
     public void PaginationTest(){
         EntityManager entityManager = EMUtil.getEntityManager("lesson6.test");
         entityManager.getTransaction().begin();
-        int maxResults = 2;
-        /*int maxResults = 3;
-        int maxResults = 5;*/
-        int page;
+        int maxResultsOnPage = 2;
+        /*int maxResultsOnPage = 3;
+        int maxResultsOnPage = 5;*/
+        int amountPage;
         int max;
         int size;
         javax.persistence.Query query = entityManager.createQuery("from Person");
-        if ((size = query.getResultList().size()) % maxResults == 0){
-            max = size / maxResults;
-        } else max = size / maxResults + 1;
+        if ((size = query.getResultList().size()) % maxResultsOnPage == 0){
+            max = size / maxResultsOnPage;
+        } else max = size / maxResultsOnPage + 1;
         for (int i = 1; i<= max; i++){
-            page = i;
-            query.setFirstResult((page-1)*maxResults)
-                    .setMaxResults(maxResults);
+            amountPage = i;
+            query.setFirstResult((amountPage-1)*maxResultsOnPage)
+                    .setMaxResults(maxResultsOnPage);
             query.getResultList().forEach(System.out::println);
-            System.out.println("Page " + page);
+            System.out.println("Страница " + amountPage);
         }
         entityManager.getTransaction().commit();
     }
