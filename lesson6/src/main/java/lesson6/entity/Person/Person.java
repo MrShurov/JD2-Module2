@@ -18,6 +18,6 @@ public class Person {
     private String name;
     @Column/*(name = "SURNAME")*/
     private String surname;
-    @OneToOne( cascade = CascadeType.ALL)
+    @OneToOne( cascade = CascadeType.PERSIST)
     private PersonInfo personInfo;
 }
