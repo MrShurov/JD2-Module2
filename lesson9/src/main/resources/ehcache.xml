@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache>
     <defaultCache maxElementsInMemory="10" eternal="false"
-                  timeToIdleSeconds="10" timeToLiveSeconds="200" />
+                  timeToIdleSeconds="3" timeToLiveSeconds="200" />
     <cache name="lesson9.entity.Author"
            maxEntriesLocalHeap="4"
            eternal="false"
@@ -10,9 +10,9 @@
         <persistence strategy="localTempSwap"/>
     </cache>
     <cache name="org.hibernate.cache.StandardQueryCache"
-           maxEntriesLocalHeap="5"
+           maxEntriesLocalHeap="2"
            eternal="false"
-           timeToLiveSeconds="10">
+           timeToLiveSeconds="3">
         <persistence strategy="localTempSwap"/>
     </cache>
 </ehcache>

@@ -55,7 +55,7 @@ public class cacheTest {
         Author author3 = entityManager.find(Author.class,1L);
         System.out.println(author3);
         try{
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -70,12 +70,18 @@ public class cacheTest {
         Query query = session.createQuery(
                 "select a " +
                         "from Author a " +
-                        "where a.name = 'Александр'");
-        query.setCacheable(true);
+                        "where a.name = 'Александр'").setCacheable(true);
         System.out.println(query.getSingleResult());
         System.out.println(query.getSingleResult());
         entityManager.clear();
         System.out.println("Clear");
+        System.out.println(query.getSingleResult());
+        System.out.println(query.getSingleResult());
+        try{
+            Thread.sleep(5000);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         System.out.println(query.getSingleResult());
     }
 }
