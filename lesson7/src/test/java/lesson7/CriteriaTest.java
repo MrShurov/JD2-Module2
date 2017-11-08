@@ -25,12 +25,12 @@ public class CriteriaTest {
         Author author1 = new Author("Николай","Гоголь");
         entityManager.persist(author);
         entityManager.persist(author1);
-        Book book = new Book(null,"Мёртвые души",1842,author);
-        Book book1 = new Book(null,"Тарас Бульба",1835,author);
-        Book book2 = new Book(null,"Шинель",1842,author);
-        Book book3 = new Book(null,"Капитанская дочка",1836 ,author1);
-        Book book4 = new Book(null,"Пиковая дама",1834 ,author1);
-        Book book5 = new Book(null,"Руслан и Людмила",null ,author1);
+        Book book = new Book(null,"Мёртвые души",1842,author1);
+        Book book1 = new Book(null,"Тарас Бульба",1835,author1);
+        Book book2 = new Book(null,"Шинель",1842,author1);
+        Book book3 = new Book(null,"Капитанская дочка",1836 ,author);
+        Book book4 = new Book(null,"Пиковая дама",1834 ,author);
+        Book book5 = new Book(null,"Руслан и Людмила",null ,author);
         entityManager.persist(book);
         entityManager.persist(book1);
         entityManager.persist(book2);
