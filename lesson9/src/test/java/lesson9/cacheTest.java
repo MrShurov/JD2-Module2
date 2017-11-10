@@ -68,9 +68,7 @@ public class cacheTest {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         Session session = entityManager.unwrap(Session.class);
         Query query = session.createQuery(
-                "select a " +
-                        "from Author a " +
-                        "where a.name = 'Александр'").setCacheable(true);
+                "select a from Author a where a.name = 'Александр'").setCacheable(true);
         System.out.println(query.getSingleResult());
         System.out.println(query.getSingleResult());
         entityManager.clear();

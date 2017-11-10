@@ -121,7 +121,7 @@ public class emTest {
     }
 
     @Test
-    public void forceTest(){
+    public void forceTestWithException(){
         EntityManager entityManager = HibernateUtil.getEntityManager();
         entityManager.getTransaction().begin();
         BookVersion bookVersion = entityManager.find(BookVersion.class, 1L, LockModeType.OPTIMISTIC_FORCE_INCREMENT);

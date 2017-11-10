@@ -49,7 +49,7 @@ public class Lesson6Test {
 
     @Test
     public void getByNameTest() {
-        EntityManager entityManager = EMUtil.getEntityManager("lesson6.test");
+        EntityManager entityManager = EMUtil.getEntityManager();
         Session session = entityManager.unwrap(Session.class);
         Query query = session.createQuery("from Person where name='Egor'");
         System.out.println(query.list());
