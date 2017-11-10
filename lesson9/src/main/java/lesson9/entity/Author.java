@@ -13,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-@Cacheable
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Author {
     @Id
