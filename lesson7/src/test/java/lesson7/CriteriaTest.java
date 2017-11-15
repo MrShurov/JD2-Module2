@@ -17,6 +17,7 @@ import java.util.List;
 
 public class CriteriaTest {
 
+    @SuppressWarnings("Duplicates")
     @Before
     public void init(){
         EntityManager entityManager = HibernateUtil.getEntityManager();

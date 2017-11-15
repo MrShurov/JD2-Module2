@@ -2,6 +2,13 @@
 <ehcache>
     <defaultCache maxElementsInMemory="10" eternal="false"
                   timeToIdleSeconds="3" timeToLiveSeconds="3" />
+    <cache name="lesson9.entity.Book"
+           maxEntriesLocalHeap="4"
+           eternal="false"
+           timeToIdleSeconds="1"
+           timeToLiveSeconds="3">
+        <persistence strategy="localTempSwap"/>
+    </cache>
     <cache name="lesson9.entity.Author"
            maxEntriesLocalHeap="4"
            eternal="false"

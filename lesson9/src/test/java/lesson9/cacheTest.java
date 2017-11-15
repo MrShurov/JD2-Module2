@@ -82,4 +82,31 @@ public class cacheTest {
         }
         System.out.println(query.getSingleResult());
     }
+
+    @Test
+    public void test(){
+        EntityManager entityManager = HibernateUtil.getEntityManager();
+        entityManager.getTransaction().begin();
+        System.out.println("Begin");
+        Author author = new Author("Александр","Пушкин");
+        entityManager.persist(author);
+        Book book = new Book(null,"Мёртвые души",1842,author);
+        entityManager.persist(book);
+        entityManager.getTransaction().commit();
+        System.out.println("После персиста");
+        Book book1 = entityManager.find(Book.class,7);
+        System.out.println(book1);
+        Book book2 = entityManager.find(Book.class,7);
+        System.out.println(book2);
+        entityManager.clear();
+        Book book3 = entityManager.find(Book.class,7);
+        System.out.println(book3);
+        try{
+            Thread.sleep(5000);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        Book book4 = entityManager.find(Book.class,7);
+        System.out.println(book4);
+    }
 }
